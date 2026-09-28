@@ -1,0 +1,264 @@
+1.Determinar se um número é par ou ímpar e positivo ou negativo 
+
+#include <stdio.h>
+
+int main(void)
+{
+    int num;
+    printf ("digite um número: ");
+    scanf ("%i", &num);
+    if (num % 2 == 0){
+        printf("\n%i, é um numero par\n", num);
+    }
+    else {
+        printf("%i, é um numero impar\n", num);
+    }
+    if (num < 0){
+        printf("%i, é um numero negativo", num);
+    }
+    else {
+        printf("%i, é um numero positivo", num);
+    }
+    return 0;
+}
+----------------------------------------------------------------------------------------------
+
+2.Ler três notas de um aluno, calcular a média e informar se ele foi aprovado (Média ≥7), reprovado (Média < 7) ou aprovado com louvor (Média = 10) 
+
+#include <stdio.h>
+
+int main(void)
+{
+    float n1, n2, n3, media;
+    media = 0;
+    
+    printf("digite a primeira nota: ");
+    scanf("%f", &n1);
+    printf("digite a segunda nota: ");
+    scanf("%f", &n2);
+    printf("digite a terceira nota: ");
+    scanf("%f", &n3);
+    
+    media = (n1 + n2 + n3) / 3;
+    if (media == 10){
+        printf ("Aluno aprovado com louvor! Parabens! nota: %.2f", media);
+    }
+    else if (media >= 7){
+        printf ("Aluno aprovado! Parabéns! nota: %.2f", media);
+    }
+    else if (media < 7){
+        printf("Aluno reprovado! Temos que conversar! nota: %.2f", media);
+    }
+    return 0;
+}
+----------------------------------------------------------------------------------------------
+3.Fazer um algoritmo que: • Leia um número indeterminado de linhas contendo cada uma a idade de um indivíduo. • A úl ma linha que não entrará nos cálculos, contém o valor da idade igual a zero. • Calcule e escreva a idade média deste grupo de indivíduos. • Escreva também a maior idade e a menor 
+
+#include <stdio.h>
+
+int main()
+{
+    float media;
+    int idade, menor, maior, soma, cont;
+    
+    soma = 0;
+    menor = 99999;
+    maior = 0;
+    media = 0;
+    cont = 0;
+    while(idade != 0){
+        printf("Escreva uma idade: ");
+        scanf ("%i", &idade);
+       
+        soma = soma + idade;    
+        if(idade < menor && idade != 0){
+            menor = idade;
+        }
+        else if(idade > maior){
+            maior = idade;
+        }
+        if(idade != 0){
+            cont++;
+        }
+    }
+    media = soma / cont;
+    printf("A media das idades é: %.2f\n", media);
+    printf("A menor idade é: %i\n", menor);
+    printf("A maior idade é: %i\n", maior);
+    return 0;
+}
+----------------------------------------------------------------------------------------------
+4 Faça um algoritmo que calcule a soma dos números inteiros de 1 a 100. 
+
+#include <stdio.h>
+
+int main(void)
+{
+    int cont, soma;
+    
+    cont = 0;
+    soma = 0;
+    while(cont <= 100){
+        soma =  soma + cont;
+        cont++;
+    }
+    printf("O total da soma é: %i", soma);
+    return 0;
+}
+----------------------------------------------------------------------------------------------
+5.Fazer um algoritmo para calcular e escrever a soma dos cubos dos números pares compreendidos entre B e A (B > A). B e A são lidos pelo teclado. 
+
+#include <stdio.h>
+
+int main(void)
+{
+    int a, b, aux, soma;
+    
+    soma = 0;
+    printf ("escreva o numero inicial: ");
+    scanf ("%i", &a);
+    printf ("escreva o numero final: ");
+    scanf ("%i", &b);
+    aux = a;
+    while(aux < b){
+        if(aux % 2 == 0){
+            soma = soma + (aux^3);
+        }
+        aux++;
+    }
+    printf("A soma dos cubos dos numeros pares é: %i", soma);
+    return 0;
+}
+----------------------------------------------------------------------------------------------
+6.Faça um algoritmo que lê uma temperatura em Fahrenheit e calcula a temperatura correspondente em Celsius. Ao final o programa deve exibir as duas temperaturas. –Usar a fórmula: C = (5 * (F-32) / 9)
+
+#include <stdio.h>
+
+int main(void)
+{
+    float c, f;
+    
+    c = 0;
+    printf ("Escreva uma tempeatura em Fahrenheint: ");
+    scanf ("%f", &f);
+    c = (5 * (f-32) / 9);
+    printf("A temperatura em Celcius é: %.2f", c);
+}
+----------------------------------------------------------------------------------------------
+7. Numa eleição existem três candidatos iden ficados pelos números 1, 2 e 3. Faça um algoritmo que processe o resultado de uma eleição. Inicialmente, o programa deve pedir o número total de votantes. Em seguida, deve pedir para cada votante votar (informando o número do candidato) e, ao final, mostrar o número de votos de cada candidato. 
+
+#include <stdio.h>
+
+int main(void)
+{
+   int c1, c2, c3, votantes, cont, voto;
+   
+   votantes = 0;
+   cont = 1;
+   c1 = 0;
+   c2 = 0;
+   c3 = 0;
+   printf("Digite quantas pessoas vão votar: ");
+   scanf("%i", &votantes);
+   while(cont <= votantes){
+        printf("Digite seu voto: ");
+        scanf("%i", &voto);
+        if(voto == 1){
+            c1 = c1 + 1;
+        }
+        else if (voto == 2){
+            c2 = c2 + 1;
+        }
+        else if (voto == 3){
+            c3 = c3 + 1;
+        }
+        else{
+            printf("digito inválido\n");
+        }
+        if(voto == 1 || voto == 2 || voto == 3){
+            cont++;
+        }
+   }
+   printf("votos do candidato 1: %i\n", c1);
+   printf("votos do candidato 2: %i\n", c2);
+   printf("votos do candidato 3: %i\n", c3);
+   return 0;
+}
+----------------------------------------------------------------------------------------------
+8. Número primo é aquele que só é divisível por ele mesmo e pela unidade. Fazer um algoritmo que determine e escreva os números primos compreendidos entre um intervalo fornecido pelo usuário. 
+
+#include <stdio.h>
+
+int main(void)
+{
+    int a, b, aux, qtd_divisores;
+    a = 0;
+    b = 0;
+    aux = 0;
+    qtd_divisores = 0;
+    
+    printf("Informe o valor inicial: ");
+    scanf("%i", &a);
+    printf("Informe o valor final: ");
+    scanf("%i", &b);
+    
+    if(b < a){
+        printf("O valor final nao pode ser menor que o valor inicial");
+        return 0;
+    }
+    while( a < b){
+        aux = 1;
+        qtd_divisores = 0;
+        while (aux <= a){
+            if ((a % aux) == 0){
+                qtd_divisores++;
+            }
+            aux++;
+        }
+        if(qtd_divisores == 2){
+            printf("o numero %i é um numero primo\n", a);
+        }
+        a++;
+    }
+    return 0;
+}
+----------------------------------------------------------------------------------------------
+9. Anacleto tem 1,50 m e cresce 2 cenmetros por ano, enquanto Felisberto tem 1,10 m e cresce 3 cen metros por ano. Construa um programa que calcule e apresente quantos anos serão necessários para que Felisberto seja mais alto que Anacleto. 
+
+#include <stdio.h>
+
+int main(void)
+{
+   int anacleto, felisberto, anos;
+   
+   anacleto = 150;
+   felisberto = 110;
+   anos = 0;
+   
+   while (felisberto <= anacleto){
+       anacleto = anacleto + 2;
+       felisberto = felisberto + 3;
+       anos++;
+   }
+    printf ("Sao necessarios %i anos", anos);
+    return 0;
+}
+----------------------------------------------------------------------------------------------
+10. Fazer um algoritmo para calcular e escrever a seguinte soma:  37x38/1 + 36x37/2 + 35x36/2 + ... + 1x2/37
+
+#include <stdio.h>
+
+int main(void)
+{
+   int i;
+   float soma;
+   
+   soma = 0; 
+   i = 1;
+   while (i <= 37){
+       soma = soma + ((37 - i + 1) * (38 - i + 1)) / i;
+       i++;
+   }
+    printf("soma é: %.2f", soma);
+}
+----------------------------------------------------------------------------------------------
