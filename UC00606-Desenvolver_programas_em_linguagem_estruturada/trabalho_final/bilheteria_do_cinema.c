@@ -48,18 +48,21 @@ int	main(void) {
 			total_faturado = total_faturado + preco;
 			idade = -1;//para voltar a entrar no while quando idade for valida
 		}
-		else if (opcao == 3){ // colocar aqui uma opção para 0 fazer um if com exit se for zero
-			if ((bilhetes_crianca + bilhetes_adulto + bilhetes_senior) == 0 )
+		else if (opcao == 3 || opcao == 0){ // colocar aqui uma opção para 0 fazer um if com exit se for zero
+			if ((bilhetes_crianca + bilhetes_adulto + bilhetes_senior) == 0)
 				printf ("Ainda não foram vendidos bilhetes.\n");
 			else{
 				printf ("total de bilhetes vendidos: %i\n", bilhetes_crianca + bilhetes_adulto + bilhetes_senior);
 				printf ("o valor total faturado: %.2f\n", total_faturado);
-				printf ("os bilhetes criança são: %.i\n", bilhetes_crianca);
-				printf ("os bilhetes Adulto são: %.i\n", bilhetes_adulto);
-				printf ("os bilhetes Senior são: %.i\n", bilhetes_senior);
+				printf ("os bilhetes criança são: %i\n", bilhetes_crianca);
+				printf ("os bilhetes Adulto são: %i\n", bilhetes_adulto);
+				printf ("os bilhetes Senior são: %i\n", bilhetes_senior);
 			}
+			if (opcao == 0)
+				exit;
 		}
 		else if (opcao != 0)
 			printf("Opção invalida\n");
 	}
+	return (0);
 }
