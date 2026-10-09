@@ -4,10 +4,15 @@
 int	main(void) {
 	int	hora_filme, min_filme, opcao;
 	int	idade;
-	float preco;
+	int	 bilhetes_crianca, bilhetes_adulto, bilhetes_senior;
+	float	preco, total_faturado;
 
 	opcao = 9999;
 	idade = -1;
+	bilhetes_senior = 0;
+	bilhetes_adulto = 0;
+	bilhetes_senior = 0;
+	total_faturado = 0;
 	printf ("Digite a hora inicial do filme: ");
 	scanf ("%i", &hora_filme);
 	printf ("digite os minutos: ");
@@ -25,14 +30,34 @@ int	main(void) {
 				printf ("Digite a idade do comprador: \n");
 				scanf ("%i", &idade);
 			}
-			if (idade <= 11)
+			if (idade <= 11){
 				preco = 5;
-			else if (idade >= 12 && idade <= 64)
+				bilhetes_crianca++;
+				printf ("O escalão é criança, O valor do bilhete é: %.2f\n", preco);
+			}
+			else if (idade >= 12 && idade <= 64){
 				preco = 8;
-			else if (idade >=  65)
+				bilhetes_adulto++;
+				printf ("O escalão é Adulto, O valor do bilhete é: %.2f\n", preco);
+			}
+			else if (idade >=  65){
 				preco = 6;
-			printf("o valor do bilhete é: %.2f\n", preco);
-			idade = -1;
+				bilhetes_senior++;
+				printf ("O escalão é Senior, O valor do bilhete é: %.2f\n", preco);
+			}
+			total_faturado = total_faturado + preco;
+			idade = -1;//para voltar a entrar no while quando idade for valida
+		}
+		else if (opcao == 3){ // colocar aqui uma opção para 0 fazer um if com exit se for zero
+			if ((bilhetes_crianca + bilhetes_adulto + bilhetes_senior) == 0 )
+				printf ("Ainda não foram vendidos bilhetes.\n");
+			else{
+				printf ("total de bilhetes vendidos: %i\n", bilhetes_crianca + bilhetes_adulto + bilhetes_senior);
+				printf ("o valor total faturado: %.2f\n", total_faturado);
+				printf ("os bilhetes criança são: %.i\n", bilhetes_crianca);
+				printf ("os bilhetes Adulto são: %.i\n", bilhetes_adulto);
+				printf ("os bilhetes Senior são: %.i\n", bilhetes_senior);
+			}
 		}
 		else if (opcao != 0)
 			printf("Opção invalida\n");
