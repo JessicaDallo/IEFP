@@ -7,7 +7,7 @@ int	main(void) {
 	int	 bilhetes_crianca, bilhetes_adulto, bilhetes_senior;
 	float	preco, total_faturado;
 
-	opcao = 9999;
+	opcao = 9999; //numero apenas para certeza de inciar o looping
 	idade = -1;
 	bilhetes_senior = 0;
 	bilhetes_adulto = 0;
@@ -48,7 +48,7 @@ int	main(void) {
 			total_faturado = total_faturado + preco;
 			idade = -1;//para voltar a entrar no while quando idade for valida
 		}
-		else if (opcao == 3 || opcao == 0){ // colocar aqui uma opção para 0 fazer um if com exit se for zero
+		else if (opcao == 3 || opcao == 0){
 			if ((bilhetes_crianca + bilhetes_adulto + bilhetes_senior) == 0)
 				printf ("Ainda não foram vendidos bilhetes.\n");
 			else{
