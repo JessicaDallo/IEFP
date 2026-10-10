@@ -158,11 +158,10 @@ função → palavra-chave → Declara uma função
 ## Operadores matemáticos
 
 ![mat](images/mat.png)
-![Projeto Bilheteria](images/bilheteria.png)
 
 ## Operadores relacionais
 
-!![relacionados](images/orelacionados.png)
+!![relacionados](images/relacionados.png)
 
 ## Operadores lógicos
 
@@ -170,4 +169,4 @@ função → palavra-chave → Declara uma função
 
 ## Fluxograma
 
-![fluxograma](images/fluxogama.png)
+![fluxograma](images/fluxograma.png)
