@@ -3,13 +3,15 @@
 
 int	main(void) {
 	int	hora_filme, min_filme, hora_atual, min_atual, atual, inicio, opcao;
-	int	idade;
+	int	idade, mais_novo, mais_velho;
 	int	 bilhetes_crianca, bilhetes_adulto, bilhetes_senior;
 	float	preco, total_faturado, soma_idades, total_bilhetes;
 
 	opcao = 9999; //numero apenas para certeza de inciar o looping
 	idade = -1;
 	soma_idades = 0;
+	mais_novo = 999;
+	mais_velho = 999;
 	total_bilhetes = 0;
 	bilhetes_senior = 0;
 	bilhetes_adulto = 0;
@@ -79,23 +81,39 @@ int	main(void) {
 				}
 				total_faturado = total_faturado + preco;
 				soma_idades = soma_idades + idade;
+				if(mais_novo == 999){
+					mais_novo = idade;
+					mais_velho = idade;
+				}
+				else if (mais_novo > idade)
+					mais_novo = idade;
+				else if (mais_velho < idade)
+					mais_velho = idade;
 				idade = -1;//para voltar a entrar no while quando idade for valida
 			}
 			else if (opcao == 3 || opcao == 0){
 				if ((bilhetes_crianca + bilhetes_adulto + bilhetes_senior) == 0)
 					printf ("Ainda não foram vendidos bilhetes.\n");
-				else{
+				else {
 					total_bilhetes = (bilhetes_crianca + bilhetes_adulto + bilhetes_senior);
-					printf ("total de bilhetes vendidos: %.2f\n", total_bilhetes);
-					printf ("o valor total faturado: %.2f\n", total_faturado);
-					printf ("os bilhetes criança são: %i\n", bilhetes_crianca);
-					printf ("os bilhetes Adulto são: %i\n", bilhetes_adulto);
-					printf ("os bilhetes Senior são: %i\n", bilhetes_senior);
-					printf ("a média de idade é: %.2f\n", (soma_idades/total_bilhetes));
+					printf ("Total de bilhetes vendidos: %.2f\n", total_bilhetes);
+					printf ("O valor total faturado: %.2f\n", total_faturado);
+					printf ("Os bilhetes criança são: %i\n", bilhetes_crianca);
+					printf ("Os bilhetes Adulto são: %i\n", bilhetes_adulto);
+					printf ("Os bilhetes Senior são: %i\n", bilhetes_senior);
+					printf ("A média de idade é: %.2f\n", (soma_idades/total_bilhetes));
+					printf ("O cliente mais novo tem a idade: %.i\n", mais_novo);
+					printf ("O cliente mais velho tem a idade: %.i\n", mais_velho);
 				}
-				if (opcao == 0)
-					exit;
-			}
+				if (opcao == 0){
+					printf("Tem a certeza que quer sair? (1 = Sim, 0 = Não)");
+					scanf ("%i", &opcao);
+					if(opcao == 1)
+						exit(0);
+					else
+						opcao = 1;
+				}
+			}//pensar em como cfazer o exit para que o 0 so faca relatorio quando sair, e o 3 faça o relatório tbm sem reptir codigo
 			else if (opcao != 0)
 				printf("Opção invalida\n");
 		}
