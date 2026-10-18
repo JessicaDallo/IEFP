@@ -81,7 +81,7 @@ int	main(void) {
 				}
 				total_faturado = total_faturado + preco;
 				soma_idades = soma_idades + idade;
-				if(mais_novo == 999){
+				if (mais_novo == 999){
 					mais_novo = idade;
 					mais_velho = idade;
 				}
@@ -94,26 +94,37 @@ int	main(void) {
 			else if (opcao == 3 || opcao == 0){
 				if ((bilhetes_crianca + bilhetes_adulto + bilhetes_senior) == 0)
 					printf ("Ainda não foram vendidos bilhetes.\n");
-				else {
-					total_bilhetes = (bilhetes_crianca + bilhetes_adulto + bilhetes_senior);
-					printf ("Total de bilhetes vendidos: %.2f\n", total_bilhetes);
-					printf ("O valor total faturado: %.2f\n", total_faturado);
-					printf ("Os bilhetes criança são: %i\n", bilhetes_crianca);
-					printf ("Os bilhetes Adulto são: %i\n", bilhetes_adulto);
-					printf ("Os bilhetes Senior são: %i\n", bilhetes_senior);
-					printf ("A média de idade é: %.2f\n", (soma_idades/total_bilhetes));
-					printf ("O cliente mais novo tem a idade: %.i\n", mais_novo);
-					printf ("O cliente mais velho tem a idade: %.i\n", mais_velho);
-				}
 				if (opcao == 0){
-					printf("Tem a certeza que quer sair? (1 = Sim, 0 = Não)");
+					printf ("Tem a certeza que quer sair? (1 = Sim, 0 = Não)");
 					scanf ("%i", &opcao);
-					if(opcao == 1)
-						exit(0);
-					else
+					if (opcao != 1 && opcao !=0){
+						printf("Opição inválida\n\n");
 						opcao = 1;
+						continue;
+					}
+					if (opcao == 1)
+						opcao = 4;
 				}
-			}//pensar em como cfazer o exit para que o 0 so faca relatorio quando sair, e o 3 faça o relatório tbm sem reptir codigo
+				if (opcao == 3 || opcao == 4){
+					total_bilhetes = (bilhetes_crianca + bilhetes_adulto + bilhetes_senior);
+					if(total_bilhetes == 0)
+						printf ("Não há dados, não foram vendidos Bilhetes\n");
+					else {
+						printf ("Total de bilhetes vendidos: %.2f\n", total_bilhetes);
+						printf ("O valor total faturado: %.2f\n", total_faturado);
+						printf ("Os bilhetes criança são: %i\n", bilhetes_crianca);
+						printf ("Os bilhetes Adulto são: %i\n", bilhetes_adulto);
+						printf ("Os bilhetes Senior são: %i\n", bilhetes_senior);
+						printf ("A média de idade é: %.2f\n", (soma_idades/total_bilhetes));
+						printf ("O cliente mais novo tem a idade: %i\n", mais_novo);
+						printf ("O cliente mais velho tem a idade: %i\n", mais_velho);
+					}
+				}
+				if (opcao == 4)
+					exit(0);
+				else
+					opcao = 1;
+			}
 			else if (opcao != 0)
 				printf("Opção invalida\n");
 		}
