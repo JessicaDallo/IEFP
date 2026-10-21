@@ -1,4 +1,5 @@
-//JESSICA DALLÓ, A, B , C
+//JESSICA DALLÓ 8376016
+//DESAFIOS: A, B, C, D.
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -23,11 +24,11 @@ int	main(void) {
 	
 	// introdução de horas e minutos 
 	printf ("Digite o dia da semana: \n");
-	printf ("1 = SEGUNDA / 2 = TERÇA / 3 = QUARTA / 4 = QUINTA / 5 = SEXTA / 6 = SABADO / 7 = DOMINGO\n");
+	printf ("1 = SEGUNDA / 2 = TERCA / 3 = QUARTA / 4 = QUINTA / 5 = SEXTA / 6 = SABADO / 7 = DOMINGO\n");
 	while (scanf("%d", &semana) != 1 || semana <= 0 || semana >= 7){
 		printf ("Dia da semana invalido!\nPorfavor digite novamente.\n");
 		printf ("Digite o dia da semana: \n");
-		printf ("1 = SEGUNDA / 2 = TERÇA / 3 = QUARTA / 4 = QUINTA / 5 = SEXTA / 6 = SABADO / 7 = DOMINGO\n ");
+		printf ("1 = SEGUNDA / 2 = TERCA / 3 = QUARTA / 4 = QUINTA / 5 = SEXTA / 6 = SABADO / 7 = DOMINGO\n ");
 		while (getchar() != '\n');
 	}
 	printf ("Digite a hora inicial do filme: ");
@@ -44,7 +45,7 @@ int	main(void) {
 	}
 	printf ("Digite quantos lugares tem na sala: ");
 	while (scanf ("%i",&lotacao) != 1 || lotacao <= 0){
-		printf ("Valor inválido!\nPorfavor digite novamente.\n");
+		printf ("Valor invalido!\nPorfavor digite novamente.\n");
 		printf ("Digite quantos lugares tem na sala: ");
 		while (getchar() != '\n');
 	}
@@ -66,48 +67,48 @@ int	main(void) {
 				if (idade <= 11){
 					if (semana == 2){
 						preco = 5 - (5 * 0.20);
-						printf ("O escalão é criança (TERÇA-FEIRA), O valor do bilhete é: %.2f\n", preco);
+						printf ("O escalao e crianca (TERCA-FEIRA), O valor do bilhete e: %.2f\n", preco);
 					}
 					else{
 						preco = 5;
-						printf ("O escalão é criança, O valor do bilhete é: %.2f\n", preco);
+						printf ("O escalao e crianca, O valor do bilhete e: %.2f\n", preco);
 					}
 					bilhetes_crianca++;
 				}
 				else if (idade >= 12 && idade <= 64){
 					if (idade >= 12 && idade <= 25){
-						printf ("Tem cartão de estudante?: (1 = Sim, 0 = Não) ");
+						printf ("Tem cartao de estudante? (1 = Sim, 0 = Nao) ");
 						scanf ("%i", &estudante);
 						if (estudante != 1 && estudante !=0){
-							printf("Opção inválida\n\n");
+							printf("Opção invalida\n\n");
 						}
 						else if (estudante == 1 && semana != 2){
 							preco = 6.50;
-							printf ("O escalão é Adulto (ESTUDANTE), O valor do bilhete é: %.2f\n", preco);
+							printf ("O escalao e Adulto (ESTUDANTE), O valor do bilhete e: %.2f\n", preco);
 						}
 						else if (estudante == 1 && semana == 2){
 							preco = 6.50 -( 6.50 * 0.20);
-							printf ("O escalão é Adulto (ESTUDANTE / TERÇA), O valor do bilhete é: %.2f\n", preco);
+							printf ("O escalao e Adulto (ESTUDANTE / TERCA), O valor do bilhete e: %.2f\n", preco);
 						}
 						else if (estudante == 0){
 							if (semana == 2){
 							preco = 8 - (8 * 0.20);
-							printf ("O escalão é Adulto (TERÇA-FEIRA), O valor do bilhete é: %.2f\n", preco);
+							printf ("O escalao e Adulto (TERCA-FEIRA), O valor do bilhete e: %.2f\n", preco);
 							}
 							else{
 								preco = 8;
-								printf ("O escalão é Adulto, O valor do bilhete é: %.2f\n", preco);
+								printf ("O escalao e Adulto, O valor do bilhete e: %.2f\n", preco);
 							}
 						}
 					}
 					else {
 						if (semana == 2){
 						preco = 8 - (8 * 0.20);
-						printf ("O escalão é Adulto (TERÇA-FEIRA), O valor do bilhete é: %.2f\n", preco);
+						printf ("O escalao e Adulto (TERCA-FEIRA), O valor do bilhete e: %.2f\n", preco);
 						}
 						else{
 							preco = 8;
-							printf ("O escalão é Adulto, O valor do bilhete é: %.2f\n", preco);
+							printf ("O escalao e Adulto, O valor do bilhete e: %.2f\n", preco);
 						}
 					bilhetes_adulto++;
 					}
@@ -115,12 +116,12 @@ int	main(void) {
 				else if (idade >=  65){
 					if (semana == 2){
 						preco = 6 - (6 * 0.20);
-						printf ("O escalão é Senior (TERÇA), O valor do bilhete é: %.2f\n", preco);
+						printf ("O escalao e Senior (TERCA), O valor do bilhete e: %.2f\n", preco);
 					
 					}
 					else {
 						preco = 6;
-						printf ("O escalão é Senior, O valor do bilhete é: %.2f\n", preco);
+						printf ("O escalao e Senior, O valor do bilhete e: %.2f\n", preco);
 					}
 					bilhetes_senior++;
 				}
@@ -155,22 +156,25 @@ int	main(void) {
 				}
 				atual = (hora_atual * 60) + min_atual;
 				inicio = (hora_filme * 60) + min_filme;
+				if (hora_filme == 0 && min_filme < 30 && hora_atual >= 12) {
+					atual = atual - 1440;
+				}
 				if (atual >= inicio - 30 && atual <= inicio + 15) 
 					printf("Pode entrar na sala.\n");
 				else if (inicio - atual > 30) 
-					printf("Ainda é cedo. Aguarde %i minutos.\n", ((inicio -30) - atual));
+					printf("Ainda e cedo. Aguarde %i minutos.\n", ((inicio -30) - atual));
 				else 
-					printf("Nao pode entrar na sala.\n");
+					printf("Nao pode entrar na sala.\n");*/
 			}
 	//opção 3 e 0 do menu 
 			else if (opcao == 3 || opcao == 0){
 				if ((bilhetes_crianca + bilhetes_adulto + bilhetes_senior) == 0)
-					printf ("Ainda não foram vendidos bilhetes.\n");
+					printf ("Ainda nao foram vendidos bilhetes.\n");
 				if (opcao == 0){
-					printf ("Tem a certeza que quer sair? (1 = Sim, 0 = Não) ");
+					printf ("Tem a certeza que quer sair? (1 = Sim, 0 = Nao) ");
 					scanf ("%i", &opcao);
 					if (opcao != 1 && opcao !=0){
-						printf("Opção inválida\n\n");
+						printf("Opção invalida\n\n");
 						opcao = 1;
 						continue; // vai para o inicio e começa um novo ciclo
 					}
@@ -179,16 +183,16 @@ int	main(void) {
 				}
 				if (opcao == 3 || opcao == 4){
 					if(total_bilhetes == 0)
-						printf ("Não há dados, não foram vendidos Bilhetes\n");
+						printf ("Nao ha dados, nao foram vendidos Bilhetes\n");
 					else {
 						printf ("\nTotal de bilhetes vendidos: %.2f\n", total_bilhetes);
 						printf ("Total de lugares vagos na sala: %.0f\n", lotacao - total_bilhetes);
-						printf ("Taxa de lotação: %.2f%%\n", (total_bilhetes * 100)/lotacao);
+						printf ("Taxa de lotacao: %.2f%%\n", (total_bilhetes * 100)/lotacao);
 						printf ("O valor total faturado: %.2f\n", total_faturado);
-						printf ("Os bilhetes criança são: %i\n", bilhetes_crianca);
+						printf ("Os bilhetes crianca são: %i\n", bilhetes_crianca);
 						printf ("Os bilhetes Adulto são: %i\n", bilhetes_adulto);
 						printf ("Os bilhetes Senior são: %i\n", bilhetes_senior);
-						printf ("A média de idade é: %.2f\n", (soma_idades/total_bilhetes));
+						printf ("A media de idade e: %.2f\n", (soma_idades/total_bilhetes));
 						printf ("O cliente mais novo tem a idade: %i\n", mais_novo);
 						printf ("O cliente mais velho tem a idade: %i\n", mais_velho);
 					}
